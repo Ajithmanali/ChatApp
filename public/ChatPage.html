@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="./src/assets/images/logo1.png" type="image/icon type">
+    <link rel="stylesheet" href="./src/styles/chatPage.css">
+    <title>ChitChat</title>
+  </head>
+  <body >
+     <div id="loader" class="loader"></div>
+
+     <div id="chatbox" class="chat-box-wrapper">
+         <div class="chat-wrapper">
+              
+             <div class="chat-message-wrapper">
+               
+                <div class="my-chat-content-wrapper">
+                    <img class="my-image" src="./src/assets/images/face.jpg">
+                    <p>Heloooo</p>
+                   
+                 </div>
+
+                 <div class="partner-chat-content-wrapper">
+                    <p>HI ,How you doing ?</p>
+                    <img class="partner-image" src="./src/assets/images/face1.jpg">
+                 </div>
+
+              </div>
+             <div class="send-message-section-wrapper">
+              <div class="chat-input-wrapper">
+                  <img class="my-image" src="./src/assets/images/face.jpg">
+                  <input id="message" class="chat-input-box" placeholder="Type your message here" />
+              </div>
+              <div>
+                 <img  onclick="sendMessage()" class="send-message-btn" src="./src/assets/images/send.png" alt=""/>
+              </div>
+              </div>
+
+         </div>
+
+
+     </div>
+    <script>
+       
+       let loader_element=document.getElementById('loader')
+       loader_element.style.display='flex'
+       let chatbox_element=document.getElementById('chatbox')
+       chatbox_element.style.display='none'
+
+       function sendMessage(){
+          let message=document.getElementById('message').value
+           
+        }
+    </script>
+  </body>
+</html>

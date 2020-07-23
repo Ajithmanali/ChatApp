@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="./src/assets/images/logo1.png" type="image/icon type">
+    <link rel="stylesheet" href="./src/styles/index.css">
+    <title>ChitChat</title>
+  </head>
+  <body class="container">
+   
+   <div class="leftSideWrapper">
+   
+   </div>  
+   <div class="rightSideWrapper">
+
+     <div class="imageWrapper">
+         <img src="./src/assets/images/logo1.png">
+      </div>
+    
+      <div class="loginContainerWrapper">
+
+      <h2>Lets Begin !</h2>
+      <form onsubmit="gotoChat(); return false">
+        <input class="inputBox" id="username" value="Someone"  placeholder="Please Enter Your Name !" />
+        <button type="submit" class="button">Go</button>
+      </form>  
+       </div>
+   
+   </div>
+   <script type="text/javascript">
+      function gotoChat(){
+        let username=document.getElementById('username').value
+        window.localStorage.setItem('userName',username);
+        window.location.href='/ChatPage.html'
+       }
+   </script>  
+  </body>
+</html>
