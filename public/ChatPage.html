@@ -42,12 +42,29 @@
 
 
      </div>
+     <script src="/socket.io/socket.io.js"></script> 
+    
     <script>
+      var socket = io();
        
+       let userName=window.localStorage.getItem('userName')
+     
+       socket.emit('login',{userName:userName}) 
+       
+      socket.on('Start Chat',(res)=>{
+         console.log('start CHat')
+         hideLoader()
+      })
+
        let loader_element=document.getElementById('loader')
        loader_element.style.display='flex'
        let chatbox_element=document.getElementById('chatbox')
        chatbox_element.style.display='none'
+       
+       function hideLoader(){
+         loader_element.style.display='none'
+         chatbox_element.style.display='flex'
+       }
 
        function sendMessage(){
           let message=document.getElementById('message').value
