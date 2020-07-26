@@ -40,6 +40,11 @@ io.on('connection',socket=>{
 
     })
    
+    socket.on('Chat Message',function(res){
+
+        socket.broadcast.to(rooms[socket.id]).emit('my message',res.message)
+    })
+
     socket.on('disconnect',()=>{
         waitingQue=[]
         console.log('User Disconnected')

@@ -14,18 +14,11 @@
      <div id="chatbox" class="chat-box-wrapper">
          <div class="chat-wrapper">
               
-             <div class="chat-message-wrapper">
+             <div id="chat-container" class="chat-message-wrapper">
                
-                <div class="my-chat-content-wrapper">
-                    <img class="my-image" src="./src/assets/images/face.jpg">
-                    <p>Heloooo</p>
-                   
-                 </div>
+               
 
-                 <div class="partner-chat-content-wrapper">
-                    <p>HI ,How you doing ?</p>
-                    <img class="partner-image" src="./src/assets/images/face1.jpg">
-                 </div>
+                 
 
               </div>
              <div class="send-message-section-wrapper">
@@ -56,6 +49,12 @@
          hideLoader()
       })
 
+      socket.on('my message',(res)=>{
+        
+          let chatMsgWrapper=document.getElementById('chat-container')
+          chatMsgWrapper.innerHTML+="<div class='my-chat-content-wrapper'><img class='my-image' src='./src/assets/images/face1.jpg'><p>"+res+"</p></div>"
+          
+      })
        let loader_element=document.getElementById('loader')
        loader_element.style.display='flex'
        let chatbox_element=document.getElementById('chatbox')
@@ -68,7 +67,11 @@
 
        function sendMessage(){
           let message=document.getElementById('message').value
-           
+          let chatMsgWrapper=document.getElementById('chat-container')
+
+          chatMsgWrapper.innerHTML+="<div class='partner-chat-content-wrapper'><p>"+message+"</p><img class='partner-image' src='./src/assets/images/face.jpg'></div>"
+          socket.emit('Chat Message',{message:message})
+          document.getElementById('message').value=null 
         }
     </script>
   </body>
